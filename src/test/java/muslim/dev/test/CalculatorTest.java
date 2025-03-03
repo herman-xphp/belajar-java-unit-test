@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
+import org.opentest4j.TestAbortedException;
 
 import muslim.dev.test.generator.SimpleDisplayNameGenerator;
 
@@ -67,6 +68,14 @@ public class CalculatorTest {
   @Disabled
   void testComingSoon() {
     throw new RuntimeException("Coming soon");
+  }
+
+  @Test
+  public void testAborted() {
+    var profile = System.getenv("PROFILE");
+    if (!"DEV".equals(profile)) {
+      throw new TestAbortedException("Test aborted because not DEV profile");
+    }
   }
 
 }
