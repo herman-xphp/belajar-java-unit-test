@@ -2,6 +2,7 @@ package muslim.dev.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -76,6 +77,11 @@ public class CalculatorTest {
     if (!"DEV".equals(profile)) {
       throw new TestAbortedException("Test aborted because not DEV profile");
     }
+  }
+
+  @Test
+  public void testAssumption() {
+    assumeTrue("DEV".equals(System.getenv("PROFILE")));
   }
 
 }
