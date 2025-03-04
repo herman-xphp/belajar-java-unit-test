@@ -13,7 +13,6 @@ public class SimpleDisplayNameGenerator implements DisplayNameGenerator {
 
   @Override
   public String generateDisplayNameForNestedClass(Class<?> nestedClass) {
-    // TODO Auto-generated method stub
     throw new UnsupportedOperationException("Unimplemented method 'generateDisplayNameForNestedClass'");
   }
 
