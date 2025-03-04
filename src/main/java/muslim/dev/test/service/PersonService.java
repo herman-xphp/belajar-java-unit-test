@@ -1,5 +1,7 @@
 package muslim.dev.test.service;
 
+import java.util.UUID;
+
 import muslim.dev.test.data.Person;
 import muslim.dev.test.repository.PersonRepository;
 
@@ -18,5 +20,11 @@ public class PersonService {
     } else {
       throw new IllegalArgumentException("Person not found");
     }
+  }
+
+  public Person register(String name) {
+    var person = new Person(UUID.randomUUID().toString(), name);
+    personRepository.insert(person);
+    return person;
   }
 }
